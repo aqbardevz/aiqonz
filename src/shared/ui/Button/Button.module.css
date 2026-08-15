@@ -1,0 +1,206 @@
+@property --btn-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes btn-border-spin {
+  to {
+    --btn-angle: 360deg;
+  }
+}
+
+.button {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 4px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ---- Sizes ---- */
+
+.sm {
+  --btn-font-size: var(--font-size-xs);
+  --btn-padding-block: 6px;
+  --btn-padding-inline: 14px;
+  --btn-radius: var(--radius-md);
+  --btn-blob-size: 36px;
+  --btn-blob-glow: 36px;
+  --btn-shadow-offset: 6px;
+  --btn-shadow-blur: 16px;
+}
+
+.md {
+  --btn-font-size: var(--font-size-sm);
+  --btn-padding-block: 10px;
+  --btn-padding-inline: 20px;
+  --btn-radius: var(--radius-md);
+  --btn-blob-size: 52px;
+  --btn-blob-glow: 48px;
+  --btn-shadow-offset: 8px;
+  --btn-shadow-blur: 22px;
+}
+
+.lg {
+  --btn-font-size: var(--font-size-lg);
+  --btn-padding-block: 14px;
+  --btn-padding-inline: 25px;
+  --btn-radius: var(--radius-lg);
+  --btn-blob-size: 70px;
+  --btn-blob-glow: 60px;
+  --btn-shadow-offset: 10px;
+  --btn-shadow-blur: 30px;
+}
+
+/* ---- Primary (glossy blob) — default look, lives on .button itself ---- */
+
+.button {
+  border-radius: var(--btn-radius);
+  padding: 2px;
+  font-size: var(--btn-font-size);
+  background: radial-gradient(
+    circle 80px at 80% -10%,
+    var(--color-white),
+    var(--color-gray-900)
+  );
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--btn-angle),
+    var(--color-accent-blue),
+    var(--color-accent-green),
+    var(--color-accent-blue)
+  );
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-default);
+}
+
+.button:not(:disabled):hover::before {
+  opacity: 1;
+  animation: btn-border-spin 2.4s linear infinite;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 65%;
+  height: 60%;
+  border-radius: 120px;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-white) 22%, transparent);
+  z-index: -1;
+}
+
+.blob1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: var(--btn-blob-size);
+  height: 100%;
+  border-radius: var(--btn-radius);
+  background: radial-gradient(
+    circle var(--btn-blob-glow) at 0% 100%,
+    var(--color-blue-400),
+    color-mix(in srgb, var(--color-accent-blue) 50%, transparent),
+    transparent
+  );
+  box-shadow: calc(var(--btn-shadow-offset) * -1) var(--btn-shadow-offset)
+    var(--btn-shadow-blur)
+    color-mix(in srgb, var(--color-accent-blue) 18%, transparent);
+}
+
+.blob2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-blob-size);
+  height: 100%;
+  border-radius: var(--btn-radius);
+  background: radial-gradient(
+    circle var(--btn-blob-glow) at 100% 0%,
+    var(--color-green-400),
+    color-mix(in srgb, var(--color-accent-green) 50%, transparent),
+    transparent
+  );
+  box-shadow: var(--btn-shadow-offset) calc(var(--btn-shadow-offset) * -1)
+    var(--btn-shadow-blur)
+    color-mix(in srgb, var(--color-accent-green) 18%, transparent);
+}
+
+.inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--btn-padding-block) var(--btn-padding-inline);
+  border-radius: calc(var(--btn-radius) - 2px);
+  color: var(--color-white);
+  background: radial-gradient(
+    circle 80px at 80% -50%,
+    var(--color-gray-500),
+    var(--color-black)
+  );
+}
+
+.inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle var(--btn-blob-glow) at 0% 100%,
+    color-mix(in srgb, var(--color-accent-blue) 10%, transparent),
+    color-mix(in srgb, var(--color-accent-blue) 7%, transparent),
+    transparent
+  );
+}
+
+/* ---- Secondary (flat, bordered) ---- */
+
+.secondary.button {
+  padding: 0;
+  background: none;
+}
+
+.secondary.button::after {
+  content: none;
+}
+
+.secondary .inner {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  transition:
+    background-color var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default);
+}
+
+.secondary .inner::before {
+  content: none;
+}
+
+.secondary:hover .inner {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-text-muted);
+}

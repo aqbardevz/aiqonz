@@ -1,0 +1,12 @@
+.scramble {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.charBlue {
+  color: var(--color-accent-blue);
+}
+
+.charGreen {
+  color: var(--color-accent-green);
+}

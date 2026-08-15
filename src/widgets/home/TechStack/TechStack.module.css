@@ -1,0 +1,305 @@
+.techStack {
+  background-color: var(--color-black);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding-block: var(--space-20);
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid
+    color-mix(in srgb, var(--color-accent-green) 40%, transparent);
+  border-radius: var(--radius-full);
+  color: var(--color-green-400);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.headline {
+  max-width: 700px;
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-white);
+}
+
+.headlineAccent {
+  font-style: italic;
+  font-weight: var(--font-weight-medium);
+}
+
+.subtitle {
+  max-width: 620px;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-gray-400);
+}
+
+/* ---- Marquee ---- */
+
+.marqueeWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-8);
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: var(--space-3);
+  animation: marquee-scroll 480s linear infinite;
+}
+
+.marqueeTrackLeft {
+  animation-direction: normal;
+}
+
+.marqueeTrackRight {
+  animation-direction: reverse;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}
+
+.marqueeTile {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-white);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-black) 45%, transparent);
+}
+
+/* ---- Vignette: dims tiles away from the center spotlight ---- */
+
+.marqueeVignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 46% 130% at 50% 50%,
+    transparent 0%,
+    transparent 22%,
+    color-mix(in srgb, var(--color-black) 55%, transparent) 55%,
+    color-mix(in srgb, var(--color-black) 90%, transparent) 80%,
+    var(--color-black) 100%
+  );
+}
+
+/* ---- Center emblem (glow + brand tile over the marquee) ---- */
+
+.centerEmblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+}
+
+.centerGlow {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-full);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle at 50% 15%,
+    color-mix(in srgb, var(--color-accent-blue) 18%, transparent) 45%,
+    transparent 75%
+  );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow:
+    inset 0 -24px 30px -14px
+      color-mix(in srgb, var(--color-black) 45%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-white) 55%, transparent),
+    0 0 30px 4px color-mix(in srgb, var(--color-accent-blue) 45%, transparent);
+}
+
+.centerTile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-xl);
+  border: 1px solid color-mix(in srgb, var(--color-white) 16%, transparent);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--color-gray-800) 80%, transparent),
+    var(--color-black)
+  );
+  color: var(--color-white);
+  box-shadow:
+    0 0 0 8px color-mix(in srgb, var(--color-white) 4%, transparent),
+    0 12px 32px color-mix(in srgb, var(--color-accent-blue) 25%, transparent);
+}
+
+/* ---- Connector lines (marquee -> cards) ---- */
+
+.connector {
+  display: block;
+  width: 100%;
+  height: 64px;
+  overflow: visible;
+  filter: drop-shadow(0 0 4px var(--color-accent-blue));
+}
+
+/* ---- Phase cards ---- */
+
+.phases {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.phaseCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  border: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
+  background-color: color-mix(in srgb, var(--color-white) 3%, transparent);
+  text-align: left;
+}
+
+.phaseTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+}
+
+.phaseTools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.toolTile {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-white) 14%, transparent);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--color-gray-800) 85%, transparent),
+    var(--color-black)
+  );
+}
+
+.producesLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: calc(var(--space-2) * -1);
+}
+
+.tag {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
+  background-color: color-mix(in srgb, var(--color-white) 5%, transparent);
+  color: var(--color-gray-300);
+  font-size: var(--font-size-xs);
+}
+
+.buttonIcon {
+  transition: transform var(--duration-fast) var(--ease-default);
+}
+
+.techStack button:hover .buttonIcon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+  .phases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: var(--font-size-3xl);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .centerTile {
+    width: 60px;
+    height: 60px;
+  }
+
+  .centerGlow {
+    width: 170px;
+    height: 170px;
+  }
+
+  .marqueeTile {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .phases {
+    grid-template-columns: 1fr;
+  }
+}

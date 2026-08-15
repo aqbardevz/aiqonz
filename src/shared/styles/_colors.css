@@ -1,0 +1,105 @@
+/* Color tokens. Site is light-only: base white/black, accents green + blue,
+   everything else (neutrals, status colors) uses conventional defaults.
+   Components should consume the semantic tokens at the bottom, not the
+   raw palette above it. */
+
+:root {
+  color-scheme: light only;
+
+  /* ---- Base ---- */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ---- Neutral scale (default gray) ---- */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* ---- Accent: green ---- */
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-200: #bbf7d0;
+  --color-green-300: #86efac;
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-green-700: #15803d;
+  --color-green-800: #166534;
+  --color-green-900: #14532d;
+
+  /* ---- Accent: blue ---- */
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+
+  /* ---- Default status colors ---- */
+  --color-red-50: #fef2f2;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-amber-50: #fffbeb;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+
+  /* ================= Semantic tokens — use these in components ================= */
+
+  /* Surfaces */
+  --color-bg: var(--color-white);
+  --color-bg-subtle: var(--color-gray-50);
+  --color-surface: var(--color-white);
+  --color-surface-hover: var(--color-gray-50);
+
+  /* Text */
+  --color-text: var(--color-black);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-muted: var(--color-gray-400);
+  --color-text-inverse: var(--color-white);
+
+  /* Borders */
+  --color-border: var(--color-gray-200);
+  --color-border-strong: var(--color-gray-300);
+
+  /* Primary action (black/white) */
+  --color-primary: var(--color-black);
+  --color-primary-hover: var(--color-gray-800);
+  --color-primary-active: var(--color-gray-900);
+  --color-on-primary: var(--color-white);
+
+  /* Accent — green */
+  --color-accent-green: var(--color-green-500);
+  --color-accent-green-hover: var(--color-green-600);
+  --color-accent-green-active: var(--color-green-700);
+  --color-accent-green-bg: var(--color-green-50);
+
+  /* Accent — blue */
+  --color-accent-blue: var(--color-blue-500);
+  --color-accent-blue-hover: var(--color-blue-600);
+  --color-accent-blue-active: var(--color-blue-700);
+  --color-accent-blue-bg: var(--color-blue-50);
+
+  /* Feedback */
+  --color-success: var(--color-green-600);
+  --color-success-bg: var(--color-green-50);
+  --color-info: var(--color-blue-600);
+  --color-info-bg: var(--color-blue-50);
+  --color-error: var(--color-red-600);
+  --color-error-bg: var(--color-red-50);
+  --color-warning: var(--color-amber-600);
+  --color-warning-bg: var(--color-amber-50);
+
+  /* Focus */
+  --color-focus-ring: var(--color-blue-500);
+}

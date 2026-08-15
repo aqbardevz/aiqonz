@@ -1,0 +1,216 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
+}
+
+.navButtons {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-2);
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.navButton:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+.navButton:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.subtitle {
+  margin-top: var(--space-3);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.sliderViewport {
+  --slider-inset: max(
+    var(--container-padding-inline),
+    calc(
+      (100vw - var(--container-max-width)) / 2 + var(--container-padding-inline)
+    )
+  );
+  width: calc(100vw - var(--slider-inset));
+  margin-top: var(--space-10);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sliderViewport::-webkit-scrollbar {
+  display: none;
+}
+
+.slider {
+  display: flex;
+  gap: var(--space-6);
+  width: fit-content;
+  padding-right: var(--container-padding-inline);
+  scroll-snap-type: x proximity;
+}
+
+.card {
+  display: flex;
+  flex: 0 0 480px;
+  flex-direction: column;
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-subtle);
+  scroll-snap-align: start;
+}
+
+.quote {
+  display: -webkit-box;
+  min-height: calc(var(--font-size-lg) * var(--line-height-relaxed) * 3);
+  margin: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+}
+
+.caseStudyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-4);
+  width: fit-content;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-blue);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.caseStudyLink:hover {
+  color: var(--color-accent-blue-hover);
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-8);
+}
+
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-gray-100);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.name {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.role {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.helpBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid color-mix(in srgb, var(--color-white) 15%, transparent);
+  border-radius: var(--radius-full);
+  background-color: var(--color-black);
+}
+
+.helpIcon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-accent-blue);
+  color: var(--color-white);
+}
+
+.helpText {
+  flex: 1;
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+}
+
+.helpButton {
+  flex-shrink: 0;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  color: var(--color-accent-blue);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.helpButton:hover {
+  color: var(--color-accent-blue-hover);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .card {
+    flex-basis: 300px;
+  }
+
+  .helpBanner {
+    flex-wrap: wrap;
+    border-radius: var(--radius-xl);
+  }
+
+  .helpText {
+    flex-basis: 100%;
+  }
+}
