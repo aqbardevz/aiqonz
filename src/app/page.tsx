@@ -7,6 +7,7 @@ import { WhyChooseUs } from "@/widgets/home/WhyChooseUs/WhyChooseUs";
 import { Cases } from "@/widgets/home/Cases/Cases";
 import { Form } from "@/widgets/home/Form/Form";
 import { Services } from "@/widgets/home/Services/Services";
+import { Team } from "@/widgets/home/Team/Team";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -17,9 +18,10 @@ export default function Home() {
       <Services />
       <Cases />
       <WhyChooseUs />
+      <Team />
+      <Form />
       <Testimonals />
       <Faq />
-      {/* <Form /> */}
       <Cta />
     </main>
   );
