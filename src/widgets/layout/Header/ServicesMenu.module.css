@@ -1,0 +1,108 @@
+.servicesPanel {
+  position: fixed;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100vw - (var(--container-padding-inline) * 2));
+  max-width: var(--container-max-width);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--duration-fast) var(--ease-default),
+    visibility var(--duration-fast);
+}
+
+:global(.nav-item-services):hover .servicesPanel,
+:global(.nav-item-services):focus-within .servicesPanel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.servicesPanelInner {
+  display: flex;
+  width: 100%;
+  gap: var(--space-8);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  /* box-shadow: var(--shadow-lg); */
+}
+
+.servicesColumnWrap {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  gap: var(--space-8);
+}
+
+.servicesColumn {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.servicesColumnTitle {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+}
+
+.tintBlue {
+  background-color: var(--color-accent-blue-bg);
+  color: var(--color-blue-700);
+}
+
+.tintGreen {
+  background-color: var(--color-accent-green-bg);
+  color: var(--color-green-700);
+}
+
+.tintNeutral {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-800);
+}
+
+.serviceList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.serviceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.serviceIcon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.serviceItemTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.serviceItemDescription {
+  margin: 2px 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}

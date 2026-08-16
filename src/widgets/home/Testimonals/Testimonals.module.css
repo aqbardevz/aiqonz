@@ -80,7 +80,7 @@
 
 .card {
   display: flex;
-  flex: 0 0 480px;
+  flex: 0 0 600px;
   flex-direction: column;
   padding: var(--space-8);
   border-radius: var(--radius-xl);

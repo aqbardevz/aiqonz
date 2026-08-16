@@ -36,9 +36,9 @@
   --duration-slow: 400ms;
 
   /* ---- Layout ---- */
-  --container-max-width: 1360px;
+  --container-max-width: 1260px;
   --container-padding-inline: var(--space-6);
-  --header-height: 80px;
+  --header-height: 70px;
 
   /* Breakpoints — reference values for matchMedia()/JS; CSS custom
      properties can't be substituted into @media conditions, so media

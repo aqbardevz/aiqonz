@@ -179,7 +179,7 @@ export function Testimonals() {
           </div>
         </div>
 
-        <div className={styles.helpBanner}>
+        {/* <div className={styles.helpBanner}>
           <span className={styles.helpIcon} aria-hidden="true">
             <ChatIcon />
           </span>
@@ -189,7 +189,7 @@ export function Testimonals() {
           <a href="#" className={styles.helpButton}>
             Contact us
           </a>
-        </div>
+        </div> */}
       </Container>
     </section>
   );

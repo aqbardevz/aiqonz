@@ -1,9 +1,8 @@
 .faq {
-  background-color: var(--color-bg-subtle);
-  padding: 100px 0;
+  position: relative;
 }
 
-/* .faq::before {
+.faq::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -26,7 +25,7 @@
     transparent 80%
   );
   pointer-events: none;
-} */
+}
 
 .inner {
   position: relative;
@@ -82,15 +81,15 @@
 .bubble {
   padding: var(--space-4) var(--space-6);
   border-radius: var(--radius-md);
-  background-color: var(--color-white);
-  color: var(--color-text);
+  background-color: var(--color-black);
+  color: var(--color-white);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
   transition: background-color var(--duration-fast) var(--ease-default);
 }
 
 .question:hover .bubble {
-  background-color: var(--color-gray-200);
+  background-color: var(--color-gray-800);
 }
 
 .question:focus-visible .bubble {

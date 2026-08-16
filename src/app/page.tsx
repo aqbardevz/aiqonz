@@ -5,6 +5,7 @@ import { Hero } from "@/widgets/home/Hero/Hero";
 import { TechStack } from "@/widgets/home/TechStack/TechStack";
 import { WhyChooseUs } from "@/widgets/home/WhyChooseUs/WhyChooseUs";
 import { Cases } from "@/widgets/home/Cases/Cases";
+import { Form } from "@/widgets/home/Form/Form";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -12,11 +13,12 @@ export default function Home() {
     <main className={styles.main}>
       <Hero />
       {/* <TechStack /> */}
-      <Cases />
-      <WhyChooseUs />
-      <Testimonals />
+      {/* <Cases /> */}
+      {/* <WhyChooseUs /> */}
+      {/* <Testimonals /> */}
       {/* <Faq /> */}
-      <Cta />
+      {/* <Form /> */}
+      {/* <Cta /> */}
     </main>
   );
 }
