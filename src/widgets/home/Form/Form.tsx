@@ -1,189 +1,293 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { siTelegram, siWhatsapp } from "simple-icons";
+import {
+  LuGauge,
+  LuSignpostBig,
+  LuHandshake,
+  LuHeadphones,
+  LuTrash2,
+  LuImage,
+  LuMail,
+} from "react-icons/lu";
 import { Container } from "@/shared/ui/Container/Container";
+import { XIcon, LinkedInIcon } from "@/widgets/layout/Footer/SocialIcons";
 import styles from "./Form.module.css";
 
-const CHECKLIST = [
-  "Expect a response from us within 24 hours",
-  "We're happy to sign an NDA upon request.",
-  "Get access to a team of dedicated product specialists.",
+function TelegramIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d={siTelegram.path} />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d={siWhatsapp.path} />
+    </svg>
+  );
+}
+
+const PERKS = [
+  {
+    Icon: LuGauge,
+    title: "Quick response.",
+    text: "We'll reach out within 24 hours to discuss your goals and expectations.",
+  },
+  {
+    Icon: LuSignpostBig,
+    title: "Clear next steps.",
+    text: "After the consultation, we'll provide you with a detailed plan and timeline.",
+  },
+  {
+    Icon: LuHandshake,
+    title: "Direct access.",
+    text: "You'll work directly with our founder — no account managers, no middlemen.",
+  },
 ];
 
-const BUDGET_OPTIONS = [
-  "Less than $5K",
-  "$5K - $10K",
-  "$10K - $20K",
-  "$20K - $50K",
-  "More than $50K",
+const CAPTCHA_OPTIONS = [
+  { key: "headphones", Icon: LuHeadphones, label: "Headphones" },
+  { key: "bin", Icon: LuTrash2, label: "Bin" },
+  { key: "image", Icon: LuImage, label: "Image" },
 ];
 
-function CheckIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="16"
-      height="16"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="9" />
-      <path d="m8.5 12.5 2.3 2.3 4.7-5" />
-    </svg>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="16"
-      height="16"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M6.5 4h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5L16 13l4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4Z" />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="16"
-      height="16"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
+const CONTACT_METHODS = [
+  {
+    key: "email",
+    label: "Email",
+    Icon: LuMail,
+    type: "email",
+    placeholder: "your@email.com",
+  },
+  {
+    key: "telegram",
+    label: "Telegram",
+    Icon: TelegramIcon,
+    type: "text",
+    placeholder: "@username",
+  },
+  {
+    key: "whatsapp",
+    label: "WhatsApp",
+    Icon: WhatsAppIcon,
+    type: "tel",
+    placeholder: "+1 234 567 8900",
+  },
+];
 
 export function Form() {
-  const [budget, setBudget] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [contactMethod, setContactMethod] = useState(CONTACT_METHODS[0].key);
+  const activeMethod =
+    CONTACT_METHODS.find((method) => method.key === contactMethod) ??
+    CONTACT_METHODS[0];
 
   return (
     <section className={styles.form}>
-      <Container className={styles.card}>
+      <Container className={styles.grid}>
         <div className={styles.info}>
-          <h2 className={styles.headline}>
-            Let&rsquo;s Talk About Your Project
-          </h2>
+          <h2 className={styles.headline}>Let&rsquo;s talk</h2>
 
-          <ul className={styles.checklist}>
-            {CHECKLIST.map((point) => (
-              <li key={point} className={styles.checklistItem}>
-                <span className={styles.checkIcon} aria-hidden="true">
-                  <CheckIcon />
+          <p className={styles.description}>
+            <span className={styles.descriptionStrong}>
+              Got a product to build
+            </span>{" "}
+            — smart contract, DeFi protocol, or audit? Let&rsquo;s make it
+            real.
+          </p>
+
+          <ul className={styles.perks}>
+            {PERKS.map(({ Icon, title, text }) => (
+              <li key={title} className={styles.perk}>
+                <span className={styles.perkIcon} aria-hidden="true">
+                  <Icon />
                 </span>
-                {point}
+                <div>
+                  <div className={styles.perkTitle}>{title}</div>
+                  <p className={styles.perkText}>{text}</p>
+                </div>
               </li>
             ))}
           </ul>
 
-          <div className={styles.founder}>
-            <div className={styles.founderPhoto} aria-hidden="true">
-              AV
-            </div>
-            <div className={styles.founderName}>Akbar K.</div>
-            <div className={styles.founderRole}>Founder of Aiqonz</div>
+          <div className={styles.contact}>
+            <img
+              src="/assets/images/founder.png"
+              alt="Akbar"
+              className={styles.contactPhoto}
+            />
 
-            <div className={styles.phone}>
-              <PhoneIcon />
-              +1 (716) 503-6335
+            <div className={styles.contactBody}>
+              <div className={styles.contactNameRow}>
+                <div>
+                  <div className={styles.contactName}>Akbar K.</div>
+                  <div className={styles.contactRole}>Founder of Aiqonz</div>
+                </div>
+
+                <div className={styles.contactSocials}>
+                  <a
+                    href="#"
+                    aria-label="X (Twitter)"
+                    className={styles.contactSocialLink}
+                  >
+                    <XIcon />
+                  </a>
+                  <a
+                    href="#"
+                    aria-label="LinkedIn"
+                    className={styles.contactSocialLink}
+                  >
+                    <LinkedInIcon />
+                  </a>
+                </div>
+              </div>
+
+              <a
+                href="https://t.me/akbar"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.telegramCta}
+              >
+                <TelegramIcon />
+                Message me directly on Telegram
+              </a>
             </div>
-            <a href="#" className={styles.callLink}>
-              Book a Call Directly
-            </a>
           </div>
         </div>
 
-        <form className={styles.fields}>
-          <label className={styles.field}>
-            <span className={styles.label}>Full Name</span>
-            <input
-              type="text"
-              name="name"
-              placeholder="John Doe"
-              className={styles.input}
-            />
-          </label>
+        <div className={styles.card}>
+          <h3 className={styles.cardHeadline}>
+            Have a project
+            <span className={styles.cardHeadlineMuted}> in mind?</span>
+          </h3>
 
-          <div className={styles.row}>
+          <form className={styles.fields}>
             <label className={styles.field}>
-              <span className={styles.label}>Your Email</span>
+              <span className={styles.label}>
+                How should we call you?
+                <span className={styles.required}>*</span>
+              </span>
               <input
-                type="email"
-                name="email"
-                placeholder="yourmail@gmail.com"
+                type="text"
+                name="name"
+                placeholder="Your Name"
                 className={styles.input}
               />
             </label>
 
-            <label className={styles.field}>
-              <span className={styles.label}>Whatsapp Number</span>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="123 456 7890"
-                className={styles.input}
-              />
-            </label>
-          </div>
-
-          <div className={styles.field}>
-            <span className={styles.label}>Project Budget</span>
-            <div className={styles.budgetGrid}>
-              {BUDGET_OPTIONS.map((option) => {
-                const isActive = budget === option;
-                return (
-                  <button
-                    key={option}
-                    type="button"
-                    className={
-                      isActive
-                        ? `${styles.budgetOption} ${styles.budgetOptionActive}`
-                        : styles.budgetOption
-                    }
-                    aria-pressed={isActive}
-                    onClick={() => setBudget(option)}
-                  >
-                    {option}
-                  </button>
-                );
-              })}
+            <div className={styles.field}>
+              <span className={styles.label}>Preferred contact method</span>
+              <div className={styles.methodOptions}>
+                {CONTACT_METHODS.map(({ key, label, Icon }) => {
+                  const isActive = contactMethod === key;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      aria-label={label}
+                      aria-pressed={isActive}
+                      className={
+                        isActive
+                          ? `${styles.methodOption} ${styles.methodOptionActive}`
+                          : styles.methodOption
+                      }
+                      onClick={() => setContactMethod(key)}
+                    >
+                      <Icon />
+                      {isActive && (
+                        <span className={styles.methodOptionLabel}>
+                          {label}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          <label className={styles.field}>
-            <span className={styles.label}>Project Details</span>
-            <textarea
-              name="details"
-              rows={4}
-              placeholder="I want to redesign my website.."
-              className={styles.textarea}
-            />
-          </label>
+            <label className={styles.field}>
+              <span className={styles.label}>
+                {activeMethod.label}
+                <span className={styles.required}>*</span>
+              </span>
+              <input
+                type={activeMethod.type}
+                name="contact"
+                placeholder={activeMethod.placeholder}
+                className={styles.input}
+              />
+            </label>
 
-          <button type="submit" className={styles.submit}>
-            Let&rsquo;s Connect
-            <ArrowIcon />
-          </button>
-        </form>
+            <label className={styles.field}>
+              <span className={styles.label}>
+                Message<span className={styles.required}>*</span>
+              </span>
+              <input
+                type="text"
+                name="message"
+                placeholder="Your message"
+                className={styles.input}
+              />
+            </label>
+
+            <div className={styles.field}>
+              <span className={styles.label}>
+                Please prove you are a human by selecting the bin:
+              </span>
+              <div className={styles.captchaOptions}>
+                {CAPTCHA_OPTIONS.map(({ key, Icon, label }) => (
+                  <button
+                    key={key}
+                    type="button"
+                    aria-label={label}
+                    aria-pressed={selected === key}
+                    className={
+                      selected === key
+                        ? `${styles.captchaOption} ${styles.captchaOptionActive}`
+                        : styles.captchaOption
+                    }
+                    onClick={() => setSelected(key)}
+                  >
+                    <Icon />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button type="submit" className={styles.submit}>
+              Send Message
+            </button>
+
+            <p className={styles.legal}>
+              By submitting, you agree to our{" "}
+              <Link href="/privacy-policy" className={styles.legalLink}>
+                Privacy Policy
+              </Link>{" "}
+              and{" "}
+              <Link href="/cookie-policy" className={styles.legalLink}>
+                Cookie Policy
+              </Link>
+              .
+            </p>
+          </form>
+        </div>
       </Container>
     </section>
   );

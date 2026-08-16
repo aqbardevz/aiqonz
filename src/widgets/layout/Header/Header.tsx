@@ -44,7 +44,7 @@ export function Header() {
 
         <div className={styles.actions}>
           <Button className={styles.cta}>Start a project</Button>
-          <LanguageSwitcher />
+          {/* <LanguageSwitcher /> */}
         </div>
       </Container>
     </header>
