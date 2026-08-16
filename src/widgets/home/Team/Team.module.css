@@ -11,7 +11,7 @@
   z-index: 0;
 }
 
-.team::before {
+/* .team::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -35,12 +35,12 @@
     transparent 80%
   );
   pointer-events: none;
-}
+} */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-5);
+  gap: var(--space-3);
   margin-top: var(--space-10);
   max-width: 900px;
   margin-left: auto;
@@ -55,7 +55,7 @@
 .photoWrap {
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   background-color: var(--color-gray-200);
 }
 

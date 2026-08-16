@@ -80,11 +80,8 @@ export function Form() {
     <section className={styles.form}>
       <Container className={styles.card}>
         <div className={styles.info}>
-          <span className={styles.badge}>Claim a $799 Consultation, on Us!</span>
-
           <h2 className={styles.headline}>
-            Enhance Your Brand Potential
-            <span className={styles.accent}> At No Cost!</span>
+            Let&rsquo;s Talk About Your Project
           </h2>
 
           <ul className={styles.checklist}>
@@ -102,8 +99,8 @@ export function Form() {
             <div className={styles.founderPhoto} aria-hidden="true">
               AV
             </div>
-            <div className={styles.founderName}>Adrian Voss</div>
-            <div className={styles.founderRole}>Co-Founder &amp; CTO</div>
+            <div className={styles.founderName}>Akbar K.</div>
+            <div className={styles.founderRole}>Founder of Aiqonz</div>
 
             <div className={styles.phone}>
               <PhoneIcon />

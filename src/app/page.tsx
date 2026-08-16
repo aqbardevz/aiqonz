@@ -22,7 +22,6 @@ export default function Home() {
       <Form />
       <Testimonals />
       <Faq />
-      <Cta />
     </main>
   );
 }

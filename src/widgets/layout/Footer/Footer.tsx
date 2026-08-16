@@ -13,7 +13,7 @@ type FooterLink = { label: string; href: string };
 
 const NAV_LINKS: FooterLink[] = [
   { label: "Services", href: "#services" },
-  { label: "Cases", href: "#cases" },
+  { label: "Cases", href: "/cases" },
   { label: "About", href: "#about" },
   { label: "How we work?", href: "#how-we-work" },
   { label: "Contacts", href: "#contacts" },
@@ -28,10 +28,10 @@ const SERVICES_LINKS: FooterLink[] = [
 ];
 
 const LEGAL_LINKS: FooterLink[] = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
-  { label: "Cookie Policy", href: "#" },
-  { label: "Disclaimer", href: "#" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
+  { label: "Disclaimer", href: "/disclaimer" },
 ];
 
 const SOCIAL_LINKS: FooterLink[] = [
