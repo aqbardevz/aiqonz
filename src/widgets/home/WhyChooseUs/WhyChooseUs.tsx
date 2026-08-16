@@ -68,14 +68,14 @@ export function WhyChooseUs() {
   return (
     <section className={styles.whyChooseUs}>
       <Container className={styles.inner}>
-        <span className={styles.badge}>Why Choose Us</span>
-
         <h2 className={styles.headline}>
-          <span className={styles.headlineAccent}>aiqonz&rsquo;s</span>{" "}
-          Alternative?
-          <br />
-          <span className={styles.headlineAccent}>Think</span> One More Time!
+          Why Choose <span className={styles.accent}>aiqonz</span>?
         </h2>
+
+        <p className={styles.subtitle}>
+          See how we stack up against in-house teams, agencies, freelancers,
+          and no-code tools.
+        </p>
 
         <div className={styles.tableScroll}>
           <div className={styles.table}>

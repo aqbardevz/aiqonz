@@ -1,5 +1,12 @@
 .whyChooseUs {
+  max-width: 1500px;
+  margin-inline: max(
+    var(--container-padding-inline),
+    calc((100% - 1500px) / 2)
+  );
   background-color: var(--color-black);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20) 0;
 }
 
 .inner {
@@ -8,20 +15,6 @@
   align-items: center;
   gap: var(--space-4);
   text-align: center;
-  background-color: var(--color-black);
-  margin: var(--space-20) auto;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-2) var(--space-5);
-  border: 1px solid
-    color-mix(in srgb, var(--color-accent-green) 40%, transparent);
-  border-radius: var(--radius-full);
-  color: var(--color-green-400);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
 }
 
 .headline {
@@ -31,6 +24,20 @@
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-white);
+}
+
+.accent {
+  background: var(--color-accent-blue);
+  color: var(--color-white);
+  padding: 10px 10px 0 10px;
+  border-radius: var(--radius-md);
+}
+
+.subtitle {
+  max-width: 520px;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-gray-400);
 }
 
 /* ---- Table ---- */
