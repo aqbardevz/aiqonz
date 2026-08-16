@@ -13,12 +13,12 @@ export default function Home() {
     <main className={styles.main}>
       <Hero />
       {/* <TechStack /> */}
-      {/* <Cases /> */}
+      <Cases />
       {/* <WhyChooseUs /> */}
       {/* <Testimonals /> */}
       {/* <Faq /> */}
       {/* <Form /> */}
-      {/* <Cta /> */}
+      <Cta />
     </main>
   );
 }

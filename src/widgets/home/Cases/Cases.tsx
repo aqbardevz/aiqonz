@@ -1,10 +1,10 @@
 import { Container } from "@/shared/ui/Container/Container";
 import styles from "./Cases.module.css";
+import Link from "next/link";
+import { GoArrowUpRight } from "react-icons/go";
 
 type Project = {
   company: string;
-  location: string;
-  flag: string;
   title: string;
   tags: string[];
   image: string;
@@ -14,17 +14,13 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     company: "Fluxa",
-    location: "Lisbon, Portugal",
-    flag: "🇵🇹",
     title: "Non-custodial multi-chain wallet app",
     tags: ["DeFi Wallet", "Mobile App", "B2C"],
-    image: "/assets/projects/project-wallet.png",
+    image: "/assets/projects/project-wallet2.png",
     imageAlt: "Fluxa wallet app screens",
   },
   {
     company: "Smart Valor",
-    location: "Zug, Switzerland",
-    flag: "🇨🇭",
     title: "Web3 AI market intelligence platform",
     tags: ["Web3 AI", "Fintech Platform", "B2B SaaS"],
     image: "/assets/projects/project-smartvalor.png",
@@ -32,8 +28,6 @@ const PROJECTS: Project[] = [
   },
   {
     company: "CitaDAO",
-    location: "Singapore",
-    flag: "🇸🇬",
     title: "Real-world asset liquidity pools dashboard",
     tags: ["DeFi Dashboard", "Web3 SaaS", "B2B"],
     image: "/assets/projects/project-citadao.png",
@@ -41,33 +35,12 @@ const PROJECTS: Project[] = [
   },
   {
     company: "CryptoProject",
-    location: "Dubai, UAE",
-    flag: "🇦🇪",
     title: "Non-custodial DeFi trading platform",
     tags: ["DeFi Platform", "Web3 SaaS", "B2C"],
     image: "/assets/projects/project-cryptoproject.png",
     imageAlt: "CryptoProject landing page",
   },
 ];
-
-function CaseIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M7 17 17 7" />
-      <path d="M8 7h9v9" />
-    </svg>
-  );
-}
 
 export function Cases() {
   return (
@@ -84,22 +57,13 @@ export function Cases() {
                   alt={project.imageAlt}
                   className={styles.previewImage}
                 />
+                <Link href="#" className={styles.previewOverlay}>
+                  About Project
+                  <GoArrowUpRight />
+                </Link>
               </div>
 
               <div className={styles.body}>
-                <div className={styles.meta}>
-                  <span className={styles.icon} aria-hidden="true">
-                    <CaseIcon />
-                  </span>
-                  <span className={styles.company}>{project.company}</span>
-                  <span className={styles.dot} aria-hidden="true">
-                    |
-                  </span>
-                  <span className={styles.location}>
-                    {project.flag} {project.location}
-                  </span>
-                </div>
-
                 <h3 className={styles.cardTitle}>{project.title}</h3>
 
                 <div className={styles.tags}>

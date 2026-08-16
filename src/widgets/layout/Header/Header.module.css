@@ -13,7 +13,6 @@
   justify-content: space-between;
   gap: var(--space-6);
   min-height: var(--header-height);
-  padding: 0px 5px;
 }
 
 .logo {
