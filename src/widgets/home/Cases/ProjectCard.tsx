@@ -12,7 +12,7 @@ export function ProjectCard({ project }: { project: Project }) {
           alt={project.imageAlt}
           className={styles.previewImage}
         />
-        <Link href="#" className={styles.previewOverlay}>
+        <Link href={`/cases/${project.slug}`} className={styles.previewOverlay}>
           About Project
           <GoArrowUpRight />
         </Link>
