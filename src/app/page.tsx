@@ -1,4 +1,3 @@
-import { Cta } from "@/widgets/layout/Cta/Cta";
 import { Faq } from "@/widgets/home/Faq/Faq";
 import { Testimonals } from "@/widgets/home/Testimonals/Testimonals";
 import { Hero } from "@/widgets/home/Hero/Hero";

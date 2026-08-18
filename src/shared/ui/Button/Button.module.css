@@ -83,9 +83,9 @@
   border-radius: inherit;
   background: conic-gradient(
     from var(--btn-angle),
-    var(--color-accent-blue),
+    var(--color-accent),
     var(--color-white),
-    var(--color-accent-blue)
+    var(--color-accent)
   );
   opacity: 0;
   transition: opacity var(--duration-slow) var(--ease-default);
@@ -117,13 +117,13 @@
   border-radius: var(--btn-radius);
   background: radial-gradient(
     circle var(--btn-blob-glow) at 0% 100%,
-    var(--color-blue-400),
-    color-mix(in srgb, var(--color-accent-blue) 50%, transparent),
+    var(--color-accent),
+    color-mix(in srgb, var(--color-accent) 50%, transparent),
     transparent
   );
   box-shadow: calc(var(--btn-shadow-offset) * -1) var(--btn-shadow-offset)
     var(--btn-shadow-blur)
-    color-mix(in srgb, var(--color-accent-blue) 18%, transparent);
+    color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
 
 .blob2 {
@@ -170,8 +170,8 @@
   border-radius: inherit;
   background: radial-gradient(
     circle var(--btn-blob-glow) at 0% 100%,
-    color-mix(in srgb, var(--color-accent-blue) 10%, transparent),
-    color-mix(in srgb, var(--color-accent-blue) 7%, transparent),
+    color-mix(in srgb, var(--color-accent) 10%, transparent),
+    color-mix(in srgb, var(--color-accent) 7%, transparent),
     transparent
   );
 }
@@ -188,7 +188,7 @@
 }
 
 .secondary .inner {
-  background: var(--color-white);
+  background: var(--color-bg);
   border: 1px solid var(--color-border-strong);
   color: var(--color-text);
   transition:

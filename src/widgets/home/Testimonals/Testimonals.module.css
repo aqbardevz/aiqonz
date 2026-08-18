@@ -109,12 +109,12 @@
   width: fit-content;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-accent-blue);
+  color: var(--color-accent);
   transition: color var(--duration-fast) var(--ease-default);
 }
 
 .caseStudyLink:hover {
-  color: var(--color-accent-blue-hover);
+  color: var(--color-accent-hover);
 }
 
 .person {
@@ -169,7 +169,7 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background-color: var(--color-accent-blue);
+  background-color: var(--color-accent);
   color: var(--color-white);
 }
 
@@ -186,14 +186,14 @@
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-full);
   background-color: var(--color-white);
-  color: var(--color-accent-blue);
+  color: var(--color-accent);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   transition: color var(--duration-fast) var(--ease-default);
 }
 
 .helpButton:hover {
-  color: var(--color-accent-blue-hover);
+  color: var(--color-accent-hover);
 }
 
 @media (max-width: 768px) {

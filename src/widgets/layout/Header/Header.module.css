@@ -6,6 +6,27 @@
   /* width: 100%; */
 }
 
+/* Homepage only: float transparently over the Hero's dark block instead of
+   reserving its own bar, so the Hero background shows through behind it. */
+.onHero {
+  position: absolute;
+  top: var(--space-2);
+  inset-inline: 0;
+  background: transparent;
+}
+
+.onHero .logo {
+  color: var(--color-white);
+}
+
+.onHero .navLink {
+  color: color-mix(in srgb, var(--color-white) 70%, transparent);
+}
+
+.onHero .navLink:hover {
+  color: var(--color-white);
+}
+
 .inner {
   position: relative;
   display: flex;

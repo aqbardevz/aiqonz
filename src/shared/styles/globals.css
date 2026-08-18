@@ -22,7 +22,7 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-accent-blue-bg);
+  background-color: var(--color-accent-bg);
   color: var(--color-text);
 }
 

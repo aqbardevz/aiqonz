@@ -12,7 +12,7 @@
   font-size: var(--font-size-6xl);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--letter-spacing-tight);
-  color: var(--color-accent-blue);
+  color: var(--color-accent);
 }
 
 .title {
@@ -35,12 +35,12 @@
   align-items: center;
   gap: var(--space-2);
   margin-top: var(--space-8);
-  color: var(--color-accent-blue);
+  color: var(--color-accent);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   transition: color var(--duration-fast) var(--ease-default);
 }
 
 .link:hover {
-  color: var(--color-accent-blue-hover);
+  color: var(--color-accent-hover);
 }

@@ -54,8 +54,8 @@
 }
 
 .tintBlue {
-  background-color: var(--color-accent-blue-bg);
-  color: var(--color-blue-700);
+  background-color: var(--color-accent-bg);
+  color: var(--color-accent-hover);
 }
 
 .tintGreen {

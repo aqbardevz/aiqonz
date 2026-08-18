@@ -281,13 +281,13 @@
 .methodOptionActive {
   width: auto;
   padding-inline: var(--space-4);
-  border-color: var(--color-accent-blue);
+  border-color: var(--color-accent);
   background-color: color-mix(
     in srgb,
-    var(--color-accent-blue) 8%,
+    var(--color-accent) 8%,
     transparent
   );
-  color: var(--color-accent-blue);
+  color: var(--color-accent);
 }
 
 .methodOptionLabel {
@@ -320,8 +320,8 @@
 }
 
 .captchaOptionActive {
-  border-color: var(--color-accent-blue);
-  color: var(--color-accent-blue);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .submit {

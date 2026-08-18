@@ -3,7 +3,6 @@ import { PROJECTS } from "@/shared/lib/projects";
 import { ProjectCard } from "@/widgets/home/Cases/ProjectCard";
 import caseStyles from "@/widgets/home/Cases/Cases.module.css";
 import styles from "./CasesPage.module.css";
-import { Cta } from "../layout/Cta/Cta";
 import { Faq } from "../home/Faq/Faq";
 import { Form } from "../home/Form/Form";
 import { Testimonals } from "../home/Testimonals/Testimonals";

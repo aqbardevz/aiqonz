@@ -1,12 +1,80 @@
 .footer {
-  background-color: var(--color-bg);
+  margin: 0 var(--space-2) var(--space-2);
+  background-color: var(--color-black);
+  border-radius: var(--radius-xl);
 }
+
+/* ---- CTA banner ---- */
+
+.cta {
+  display: flex;
+  min-height: calc(100vh - (var(--space-2) * 2));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  padding-block: var(--space-20);
+  text-align: center;
+}
+
+.ctaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background-color: color-mix(in srgb, var(--color-green-500) 18%, transparent);
+  color: var(--color-green-400);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.ctaDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-green-400);
+}
+
+.ctaHeadline {
+  max-width: 960px;
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-white);
+}
+
+.ctaAccent {
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 10px 10px 0 10px;
+  border-radius: var(--radius-md);
+}
+
+.ctaDescription {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-400);
+  white-space: nowrap;
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+/* ---- Info + nav ---- */
 
 .inner {
   display: flex;
   justify-content: space-between;
   gap: var(--space-16);
-  padding-block: var(--space-16) var(--space-12);
+  padding-block: var(--space-20) var(--space-12);
+  border-top: 1px solid color-mix(in srgb, var(--color-white) 15%, transparent);
 }
 
 .about {
@@ -19,14 +87,14 @@
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--letter-spacing-tight);
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 .tagline {
   max-width: 320px;
   font-size: var(--font-size-sm);
   line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
+  color: var(--color-gray-400);
 }
 
 .socialIcons {
@@ -37,12 +105,12 @@
 
 .iconLink {
   display: inline-flex;
-  color: var(--color-text-muted);
+  color: var(--color-gray-400);
   transition: color var(--duration-fast) var(--ease-default);
 }
 
 .iconLink:hover {
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 .iconLink:focus-visible {
@@ -53,13 +121,7 @@
 
 .copyright {
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-}
-
-.columns {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--space-8);
+  color: var(--color-gray-400);
 }
 
 .column {
@@ -71,7 +133,7 @@
 .columnTitle {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 .columnList {
@@ -80,14 +142,34 @@
   gap: var(--space-3);
 }
 
+.serviceGroups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.serviceGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.serviceGroupTitle {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
 .columnLink {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-gray-400);
   transition: color var(--duration-fast) var(--ease-default);
 }
 
 .columnLink:hover {
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 .columnLink:focus-visible {
@@ -97,18 +179,22 @@
 }
 
 @media (max-width: 768px) {
-  .inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
+  .ctaHeadline {
+    font-size: var(--font-size-4xl);
   }
 
-  .columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .ctaDescription {
+    white-space: normal;
+  }
+
+  .inner {
+    flex-direction: column;
+    gap: var(--space-10);
   }
 }
 
 @media (max-width: 480px) {
-  .columns {
-    grid-template-columns: 1fr;
+  .mobileHide {
+    display: none;
   }
 }

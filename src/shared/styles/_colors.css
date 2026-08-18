@@ -1,7 +1,12 @@
-/* Color tokens. Site is light-only: base white/black, accents green + blue,
-   everything else (neutrals, status colors) uses conventional defaults.
-   Components should consume the semantic tokens at the bottom, not the
-   raw palette above it. */
+/* Color tokens. Base white/black + one swappable brand accent (see
+   --color-accent below); everything else (neutrals, status colors) uses
+   conventional defaults. Components should consume the semantic tokens at
+   the bottom, not the raw palette above it — in particular, always reach
+   for --color-accent (not --color-green-500 or similar) when a color is
+   meant to represent "the site's accent," so changing the whole site's
+   accent is a one-line edit right here. --color-accent-green is a
+   separate, intentionally-fixed token for things that should always read
+   as green regardless of the brand accent (success states, checkmarks). */
 
 :root {
   color-scheme: light only;
@@ -78,17 +83,21 @@
   --color-primary-active: var(--color-gray-900);
   --color-on-primary: var(--color-white);
 
-  /* Accent — green */
+  /* Accent — the site's brand accent. Change ONLY these four lines to
+     re-theme the whole site to a different accent color; every component
+     reaches for --color-accent(-hover|-active|-bg), never the raw palette
+     scale directly. Currently green. */
+  --color-accent: var(--color-green-500);
+  --color-accent-hover: var(--color-green-600);
+  --color-accent-active: var(--color-green-700);
+  --color-accent-bg: var(--color-green-50);
+
+  /* Accent — green, fixed (not the swappable brand accent above; used
+     where something should always read as green, e.g. success states) */
   --color-accent-green: var(--color-green-500);
   --color-accent-green-hover: var(--color-green-600);
   --color-accent-green-active: var(--color-green-700);
   --color-accent-green-bg: var(--color-green-50);
-
-  /* Accent — blue */
-  --color-accent-blue: var(--color-blue-500);
-  --color-accent-blue-hover: var(--color-blue-600);
-  --color-accent-blue-active: var(--color-blue-700);
-  --color-accent-blue-bg: var(--color-blue-50);
 
   /* Feedback */
   --color-success: var(--color-green-600);
@@ -101,5 +110,5 @@
   --color-warning-bg: var(--color-amber-50);
 
   /* Focus */
-  --color-focus-ring: var(--color-blue-500);
+  --color-focus-ring: var(--color-accent);
 }

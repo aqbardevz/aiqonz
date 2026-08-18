@@ -109,8 +109,7 @@ export function Form() {
             <span className={styles.descriptionStrong}>
               Got a product to build
             </span>{" "}
-            — smart contract, DeFi protocol, or audit? Let&rsquo;s make it
-            real.
+            — smart contract, DeFi protocol, or audit? Let&rsquo;s make it real.
           </p>
 
           <ul className={styles.perks}>
@@ -246,30 +245,6 @@ export function Form() {
                 className={styles.input}
               />
             </label>
-
-            <div className={styles.field}>
-              <span className={styles.label}>
-                Please prove you are a human by selecting the bin:
-              </span>
-              <div className={styles.captchaOptions}>
-                {CAPTCHA_OPTIONS.map(({ key, Icon, label }) => (
-                  <button
-                    key={key}
-                    type="button"
-                    aria-label={label}
-                    aria-pressed={selected === key}
-                    className={
-                      selected === key
-                        ? `${styles.captchaOption} ${styles.captchaOptionActive}`
-                        : styles.captchaOption
-                    }
-                    onClick={() => setSelected(key)}
-                  >
-                    <Icon />
-                  </button>
-                ))}
-              </div>
-            </div>
 
             <button type="submit" className={styles.submit}>
               Send Message

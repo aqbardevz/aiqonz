@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LuChevronDown } from "react-icons/lu";
 import { Container } from "@/shared/ui/Container/Container";
 import { Button } from "@/shared/ui/Button/Button";
@@ -10,12 +13,17 @@ const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Cases", href: "/cases" },
   { label: "About Us", href: "#about" },
-  { label: "Contacts", href: "#contacts" },
+  { label: "Contacts", href: "/contacts" },
 ];
 
 export function Header() {
+  const pathname = usePathname();
+  const onHero = pathname === "/";
+
   return (
-    <header className={styles.header}>
+    <header
+      className={onHero ? `${styles.header} ${styles.onHero}` : styles.header}
+    >
       <Container className={styles.inner}>
         <Link href="/" className={styles.logo}>
           aiqonz

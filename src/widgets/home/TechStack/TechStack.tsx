@@ -147,7 +147,7 @@ function ConnectorLines() {
           key={x}
           d={elbowPath(x)}
           fill="none"
-          stroke="var(--color-accent-blue)"
+          stroke="var(--color-accent)"
           strokeWidth={2}
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
@@ -158,7 +158,7 @@ function ConnectorLines() {
         cx={CONNECTOR_CENTER_X}
         cy={CONNECTOR_START_Y}
         r={4}
-        fill="var(--color-accent-blue)"
+        fill="var(--color-accent)"
       />
       {CARD_X.map((x) => (
         <circle
@@ -166,7 +166,7 @@ function ConnectorLines() {
           cx={x}
           cy={CONNECTOR_END_Y}
           r={4}
-          fill="var(--color-accent-blue)"
+          fill="var(--color-accent)"
         />
       ))}
     </svg>
