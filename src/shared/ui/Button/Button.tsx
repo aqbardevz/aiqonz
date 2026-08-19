@@ -1,19 +1,30 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import Link from "next/link";
 import styles from "./Button.module.css";
 
 type ButtonVariant = "primary" | "secondary";
 type ButtonSize = "sm" | "md" | "lg";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type SharedProps = {
   children: ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  className?: string;
 };
+
+type ButtonProps =
+  | (SharedProps & { href: string } & Omit<
+        AnchorHTMLAttributes<HTMLAnchorElement>,
+        "className" | "href"
+      >)
+  | (SharedProps & { href?: undefined } & Omit<
+        ButtonHTMLAttributes<HTMLButtonElement>,
+        "className"
+      >);
 
 export function Button({
   children,
   className,
-  type = "button",
   variant = "primary",
   size = "md",
   ...rest
@@ -22,8 +33,8 @@ export function Button({
     .filter(Boolean)
     .join(" ");
 
-  return (
-    <button type={type} className={classes} {...rest}>
+  const content = (
+    <>
       {variant === "primary" && (
         <>
           <div className={styles.blob1} aria-hidden="true" />
@@ -31,6 +42,23 @@ export function Button({
         </>
       )}
       <div className={styles.inner}>{children}</div>
+    </>
+  );
+
+  if (rest.href !== undefined) {
+    const { href, ...anchorRest } = rest as { href: string } &
+      Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">;
+    return (
+      <Link href={href} className={classes} {...anchorRest}>
+        {content}
+      </Link>
+    );
+  }
+
+  const { type = "button", ...buttonRest } = rest as ButtonHTMLAttributes<HTMLButtonElement>;
+  return (
+    <button type={type} className={classes} {...buttonRest}>
+      {content}
     </button>
   );
 }
