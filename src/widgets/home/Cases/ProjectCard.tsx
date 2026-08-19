@@ -1,34 +1,40 @@
 import Link from "next/link";
-import { GoArrowUpRight } from "react-icons/go";
 import type { Project } from "@/shared/lib/projects";
 import styles from "./Cases.module.css";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const [primaryStat, secondaryStat] = project.results;
+
   return (
-    <article className={styles.card}>
-      <div className={styles.preview}>
-        <img
-          src={project.image}
-          alt={project.imageAlt}
-          className={styles.previewImage}
-        />
-        <Link href={`/cases/${project.slug}`} className={styles.previewOverlay}>
-          About Project
-          <GoArrowUpRight />
-        </Link>
-      </div>
+    <Link href={`/cases/${project.slug}`} className={styles.card}>
+      <div className={styles.cardBody}>
+        <div className={styles.cardTop}>
+          <div className={styles.badges}>
+            {project.tags.map((tag) => (
+              <span key={tag} className={styles.badge}>
+                {tag}
+              </span>
+            ))}
+          </div>
 
-      <div className={styles.body}>
-        <h3 className={styles.cardTitle}>{project.title}</h3>
+          <h3 className={styles.cardTitle}>{project.title}</h3>
+        </div>
 
-        <div className={styles.tags}>
-          {project.tags.map((tag) => (
-            <span key={tag} className={styles.tag}>
-              {tag}
-            </span>
-          ))}
+        <div className={styles.statsRow}>
+          <div className={styles.stat}>
+            <span className={styles.statValue}>{primaryStat.value}</span>
+            <span className={styles.statLabel}>{primaryStat.label}</span>
+          </div>
+          <div className={styles.stat}>
+            <span className={styles.statValue}>{secondaryStat.value}</span>
+            <span className={styles.statLabel}>{secondaryStat.label}</span>
+          </div>
         </div>
       </div>
-    </article>
+
+      <div className={styles.cardImage}>
+        <img src={project.image} alt={project.imageAlt} />
+      </div>
+    </Link>
   );
 }

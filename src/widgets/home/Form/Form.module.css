@@ -1,12 +1,9 @@
 .form {
   max-width: 1500px;
-  margin-inline: max(
-    var(--container-padding-inline),
-    calc((100% - 1500px) / 2)
-  );
+  margin-inline: var(--space-1);
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--color-white) 15%, transparent);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   background-color: var(--color-black);
 }
 
@@ -282,11 +279,7 @@
   width: auto;
   padding-inline: var(--space-4);
   border-color: var(--color-accent);
-  background-color: color-mix(
-    in srgb,
-    var(--color-accent) 8%,
-    transparent
-  );
+  background-color: color-mix(in srgb, var(--color-accent) 8%, transparent);
   color: var(--color-accent);
 }
 

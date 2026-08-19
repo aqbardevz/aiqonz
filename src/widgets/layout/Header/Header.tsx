@@ -12,7 +12,7 @@ import styles from "./Header.module.css";
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Cases", href: "/cases" },
-  { label: "About Us", href: "#about" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contacts", href: "/contacts" },
 ];
 
