@@ -1,0 +1,162 @@
+.mockup {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 68%;
+  max-width: 240px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.buttonSquare {
+  border-radius: var(--radius-sm);
+}
+
+.buttonRound {
+  border-radius: var(--radius-md);
+}
+
+.buttonWhite {
+  background-color: var(--color-white);
+  color: var(--color-text);
+}
+
+.buttonAccent {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-text);
+}
+
+.iconLight {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-white);
+}
+
+.hatch {
+  position: relative;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, #e754d1 55%, transparent) 0px,
+    color-mix(in srgb, #e754d1 55%, transparent) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+}
+
+.hatchLabel {
+  position: absolute;
+  top: 50%;
+  right: var(--space-2);
+  transform: translateY(-50%);
+  padding: 1px 5px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  font-size: 9px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.cursor {
+  position: absolute;
+  display: flex;
+  font-size: 26px;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(
+    0 4px 8px color-mix(in srgb, var(--color-black) 25%, transparent)
+  );
+}
+
+.cursorDark {
+  top: 8%;
+  right: 12%;
+  color: var(--color-text);
+  transform: rotate(20deg);
+}
+
+:global(.card-root):hover .cursorDark {
+  transform: rotate(20deg) translate(6px, -6px);
+}
+
+.cursorAccent {
+  bottom: 14%;
+  left: 8%;
+  color: var(--color-accent);
+  transform: rotate(90deg);
+}
+
+:global(.card-root):hover .cursorAccent {
+  transform: rotate(90deg) translate(-6px, -6px);
+}
+
+.badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease;
+}
+
+.badgeSvg {
+  width: 55%;
+  height: 55%;
+}
+
+.badgeFigma {
+  top: 8%;
+  left: 7%;
+  transform: rotate(-10deg);
+  transition-delay: 0.05s;
+}
+
+:global(.card-root):hover .badgeFigma {
+  transform: rotate(-4deg) scale(1.15) translate(-4px, -4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.badgeFramer {
+  bottom: 8%;
+  right: 8%;
+  transform: rotate(8deg);
+  transition-delay: 0.1s;
+}
+
+:global(.card-root):hover .badgeFramer {
+  transform: rotate(3deg) scale(1.15) translate(4px, 4px);
+  box-shadow: var(--shadow-lg);
+}

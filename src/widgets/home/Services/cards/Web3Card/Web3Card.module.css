@@ -1,0 +1,92 @@
+.walletImage {
+  position: absolute;
+  z-index: 2;
+  top: var(--space-8);
+  left: 50%;
+  display: block;
+  width: 76%;
+  height: auto;
+  transform: translateX(-50%);
+  transition: transform 0.4s ease;
+}
+
+:global(.card-root):hover .walletImage {
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* ---- Floating tech logos (on top of the mockup) ---- */
+
+.floatIcons {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+/* Each logo is @web3icons' own "background" variant — the real branded
+ * badge (Bitcoin's orange coin, TON's blue mark, etc.) — this wrapper only
+ * positions/rounds/lifts it, it doesn't draw its own background. */
+.floatIcon {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 28px
+    color-mix(in srgb, var(--color-black) 45%, transparent);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.floatIconSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sits below the mockup (z-index 2) instead of the rest of the group
+ * (z-index 3), so it reads as tucked behind it. */
+.floatBehind {
+  z-index: 1;
+}
+
+.floatTopLeft {
+  top: 14%;
+  left: 10%;
+  transform: rotate(-14deg);
+}
+
+:global(.card-root):hover .floatTopLeft {
+  transform: rotate(-4deg) scale(1.12) translate(-6px, -8px);
+}
+
+.floatTopRight {
+  top: 11%;
+  right: 11%;
+  transform: rotate(12deg);
+  transition-delay: 0.05s;
+}
+
+:global(.card-root):hover .floatTopRight {
+  transform: rotate(3deg) scale(1.12) translate(6px, -8px);
+}
+
+.floatBottomLeft {
+  bottom: 16%;
+  left: 11%;
+  transform: rotate(16deg);
+  transition-delay: 0.1s;
+}
+
+:global(.card-root):hover .floatBottomLeft {
+  transform: rotate(5deg) scale(1.12) translate(-6px, 8px);
+}
+
+.floatBottomRight {
+  bottom: 12%;
+  right: 9%;
+  transform: rotate(-10deg);
+  transition-delay: 0.15s;
+}
+
+:global(.card-root):hover .floatBottomRight {
+  transform: rotate(-3deg) scale(1.12) translate(6px, 8px);
+}
