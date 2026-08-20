@@ -1,20 +1,9 @@
 .page {
   padding-top: calc(var(--header-height) + var(--space-5));
   padding-bottom: var(--space-20);
-}
-
-.back {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  transition: color var(--duration-fast) var(--ease-default);
-}
-
-.back:hover {
-  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
 }
 
 /* ---- Header ---- */
@@ -48,77 +37,65 @@
   color: var(--color-text);
 }
 
-.overview {
-  max-width: 720px;
-  margin-top: var(--space-4);
-  margin-inline: auto;
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
-}
+/* ---- Stack (moved up near the header — a quick trust signal, not
+   something worth burying at the bottom of the page) ---- */
 
-.meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-8);
-  margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border);
-  width: 100%;
-}
-
-.metaItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.metaLabel {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
-}
-
-.metaValue {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
-}
-
-.metaTags {
+.stackRow {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  margin-top: var(--space-8);
 }
 
-.tag {
-  padding: var(--space-1) var(--space-3);
+.stackChip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-full);
   background-color: var(--color-bg-subtle);
   border: 1px solid var(--color-border);
-  font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }
 
-/* ---- Hero image ---- */
+.stackChipIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-.heroImage {
+/* ---- Gallery ---- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+}
+
+.galleryImage {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  margin-top: var(--space-10);
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-xl);
   object-fit: cover;
 }
 
-/* ---- Challenge / solution ---- */
+.galleryImageLead {
+  grid-column: 1 / -1;
+}
 
-.columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* ---- About / challenge / solution / process / result — one stacked
+   column of text sections, each with its own heading. ---- */
+
+.textSection {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-10);
+  max-width: 760px;
   margin-top: var(--space-16);
 }
 
@@ -136,51 +113,113 @@
   color: var(--color-text-secondary);
 }
 
-/* ---- Results ---- */
-
-.results {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  margin-top: var(--space-16);
-  padding: var(--space-8);
-  border-radius: var(--radius-xl);
-  background-color: var(--color-bg-subtle);
+.approachList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: approach;
 }
 
-.result {
+.approachItem {
+  position: relative;
+  padding-left: var(--space-8);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  counter-increment: approach;
+}
+
+.approachItem::before {
+  content: counter(approach);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-subtle);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+/* ---- Testimonial ---- */
+
+.testimonial {
+  margin: var(--space-16) 0 0;
+  padding: var(--space-16) var(--space-10);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-black);
   text-align: center;
 }
 
-.resultValue {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
+.testimonialQuote {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
-  color: var(--color-accent);
+  color: var(--color-white);
 }
 
-.resultLabel {
-  margin-top: var(--space-2);
+.testimonialAttribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.testimonialAvatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-gray-100);
+  color: var(--color-text);
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-semibold);
 }
 
-/* ---- Stack ---- */
+.testimonialAttributionText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: left;
+}
 
-.stackSection {
+.testimonialName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+}
+
+.testimonialRole {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+}
+
+/* ---- Other projects ---- */
+
+.moreSection {
   margin-top: var(--space-16);
 }
 
-.stackList {
+.moreGrid {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
-}
-
-.stackList .tag {
-  font-size: var(--font-size-sm);
-  padding: var(--space-2) var(--space-4);
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
 }
 
 @media (max-width: 768px) {
@@ -188,12 +227,15 @@
     font-size: var(--font-size-3xl);
   }
 
-  .columns {
+  .gallery {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
   }
 
-  .results {
-    grid-template-columns: 1fr;
+  .testimonial {
+    padding: var(--space-10) var(--space-6);
+  }
+
+  .testimonialQuote {
+    font-size: var(--font-size-2xl);
   }
 }

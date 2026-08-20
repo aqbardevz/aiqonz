@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import { LuArrowRight } from "react-icons/lu";
 import type { Project } from "@/shared/lib/projects";
 import styles from "./Cases.module.css";
 
@@ -26,6 +27,11 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
 
           <h3 className={styles.cardTitle}>{project.title}</h3>
+
+          <span className={styles.cardCta}>
+            View case study
+            <LuArrowRight className={styles.cardCtaIcon} size={16} />
+          </span>
         </div>
 
         <div className={styles.statsRow}>
@@ -41,7 +47,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className={styles.cardImage}>
-        <img src={project.image} alt={project.imageAlt} />
+        <img src={project.images[0]} alt={project.imageAlt} />
       </div>
     </Link>
   );

@@ -73,6 +73,34 @@
   color: var(--color-text);
 }
 
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  width: fit-content;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--duration-fast) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
+}
+
+.card:hover .cardCta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardCtaIcon {
+  transition: transform var(--duration-fast) var(--ease-default);
+}
+
+.card:hover .cardCtaIcon {
+  transform: translateX(3px);
+}
+
 .statsRow {
   display: flex;
   gap: var(--space-8);
@@ -100,6 +128,9 @@
 
 .cardImage {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1 1 58%;
   min-width: 0;
   padding: var(--space-3);
@@ -108,7 +139,7 @@
 .cardImage img {
   display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-lg);
 }
@@ -141,7 +172,6 @@
 
   .cardImage {
     flex: none;
-    aspect-ratio: 16 / 10;
   }
 
   .cardTitle {
