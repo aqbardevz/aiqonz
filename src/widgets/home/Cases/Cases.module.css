@@ -26,11 +26,6 @@
   border-radius: var(--radius-xl);
   overflow: hidden;
   background-color: var(--color-bg-subtle);
-  background-image: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--project-accent) 14%, transparent) 0%,
-    transparent 55%
-  );
   text-align: left;
   transition: border-color var(--duration-fast) var(--ease-default);
 }

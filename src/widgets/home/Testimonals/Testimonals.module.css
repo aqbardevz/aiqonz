@@ -24,6 +24,10 @@
   gap: var(--space-2);
 }
 
+.navButtonsMobile {
+  display: none;
+}
+
 .navButton {
   display: flex;
   align-items: center;
@@ -53,14 +57,19 @@
 }
 
 .sliderViewport {
+  /* True inset of the Container's content edge from the real viewport
+     edge — reused below as left padding on the track so the resting
+     (scrollLeft: 0) position lines up with the page's container, without
+     that boundary staying as a permanent clip once the user pages left. */
   --slider-inset: max(
     var(--container-padding-inline),
     calc(
       (100vw - var(--container-max-width)) / 2 + var(--container-padding-inline)
     )
   );
-  width: calc(100vw - var(--slider-inset));
+  width: 100vw;
   margin-top: var(--space-10);
+  margin-inline: calc(50% - 50vw);
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -74,8 +83,9 @@
   display: flex;
   gap: var(--space-6);
   width: fit-content;
+  padding-left: var(--slider-inset);
   padding-right: var(--container-padding-inline);
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
 }
 
 .card {
@@ -87,6 +97,7 @@
   border: 1px solid var(--color-border);
   background-color: var(--color-bg-subtle);
   scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .quote {
@@ -197,12 +208,31 @@
 }
 
 @media (max-width: 768px) {
+  .inner {
+    text-align: center;
+  }
+
+  .header {
+    justify-content: center;
+  }
+
   .title {
     font-size: var(--font-size-3xl);
   }
 
+  .navButtons {
+    display: none;
+  }
+
+  .navButtonsMobile {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-6);
+  }
+
   .card {
-    flex-basis: 300px;
+    flex-basis: calc(100vw - 2 * var(--container-padding-inline));
   }
 
   .helpBanner {

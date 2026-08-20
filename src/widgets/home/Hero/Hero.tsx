@@ -14,8 +14,10 @@ export function Hero() {
 
         <div className={styles.content}>
           <h1 className={styles.headline}>
-            Your <span className={styles.accent}>full-cycle</span> partner{" "}
-            <br /> in the{" "}
+            Your <span className={styles.accent}>full-cycle</span>
+            <br className={styles.breakMobile} /> partner
+            <br className={styles.breakDesktop} /> in the
+            <br className={styles.breakMobile} />{" "}
             <span className={styles.accent2}>Web3 world</span>
           </h1>
 

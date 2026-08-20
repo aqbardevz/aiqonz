@@ -52,6 +52,14 @@ export type DotFieldConfig = {
   highlightColor: Rgb;
   highlightMix: number;
   /**
+   * Pulls each half's dots horizontally toward the centre by this many
+   * px, but only once the canvas is narrower than centerPullBelow —
+   * lets two side-by-side subjects (e.g. two hands) sit closer together
+   * on small screens without needing separate lattice data.
+   */
+  centerPull: number;
+  centerPullBelow: number;
+  /**
    * CSS selector for the ancestor pointer events are tracked on. Wider
    * than the canvas itself when overlaid content (e.g. a headline sitting
    * on top of the field) would otherwise swallow pointer events. Null
@@ -79,6 +87,8 @@ export const DEFAULT_DOT_FIELD_CONFIG: DotFieldConfig = {
   slideFrom: 0.14,
   highlightColor: [255, 255, 255],
   highlightMix: 0.6,
+  centerPull: 0,
+  centerPullBelow: 0,
   pointerScopeSelector: null,
 };
 
@@ -226,6 +236,10 @@ export function DotField({ field, config: overrides, className }: DotFieldProps)
       const baseH = cellH * config.dotHeight;
       const elapsed = now - revealStart;
       const slide = width * config.slideFrom;
+      const centerPull =
+        config.centerPullBelow > 0 && width <= config.centerPullBelow
+          ? config.centerPull
+          : 0;
 
       // Ease the cursor toward its target so the effect trails the mouse
       // instead of snapping, and fades out once it leaves.
@@ -256,6 +270,9 @@ export function DotField({ field, config: overrides, className }: DotFieldProps)
 
         // Entrance: still parked off its own edge until fully revealed.
         x += dot.side * slide * (1 - eased);
+        // Pull each half toward the centre, e.g. to sit two hands closer
+        // together once the canvas gets narrow.
+        x -= dot.side * centerPull;
 
         // Elliptical falloff so the middle of the field stays legible.
         const nx = (x / width - 0.5) / config.fadeRadiusX;

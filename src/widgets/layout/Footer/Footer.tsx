@@ -88,10 +88,7 @@ export function Footer() {
 
         <div className={styles.bottom}>
           <div className={styles.about}>
-            <span className={styles.logo}>
-              <LuSparkle className={styles.logoIcon} aria-hidden="true" />
-              aiqonz.
-            </span>
+            <span className={styles.logo}>aiqonz</span>
 
             <div className={styles.connect}>
               <span className={styles.connectLabel}>Connect with us:</span>

@@ -165,7 +165,12 @@ export function Form() {
                 className={styles.telegramCta}
               >
                 <TelegramIcon />
-                Message me directly on Telegram
+                <span className={styles.telegramCtaFull}>
+                  Message me directly on Telegram
+                </span>
+                <span className={styles.telegramCtaShort}>
+                  Message me on TG
+                </span>
               </a>
             </div>
           </div>

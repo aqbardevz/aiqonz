@@ -181,6 +181,10 @@
   filter: brightness(1.08);
 }
 
+.telegramCtaShort {
+  display: none;
+}
+
 /* ---- Right: card ---- */
 
 .card {
@@ -351,7 +355,7 @@
     grid-template-columns: 1fr;
     gap: var(--space-6);
     padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
+    padding-bottom: var(--space-6);
   }
 
   .headline {
@@ -385,16 +389,19 @@
   }
 
   .contact {
-    flex-direction: column;
-  }
-
-  .contactPhoto {
-    width: 100%;
-    height: 140px;
+    margin-top: var(--space-5);
   }
 
   .methodOptions {
     flex-wrap: wrap;
+  }
+
+  .telegramCtaFull {
+    display: none;
+  }
+
+  .telegramCtaShort {
+    display: inline;
   }
 }
 

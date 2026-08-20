@@ -23,15 +23,6 @@
   overflow: hidden;
 }
 
-/* .cardHighlight {
-  background-color: color-mix(
-    in srgb,
-    var(--color-accent-green) 8%,
-    var(--color-bg-subtle)
-  );
-  border-color: color-mix(in srgb, var(--color-accent-green) 40%, transparent);
-} */
-
 .cardHeader {
   display: flex;
   align-items: center;
@@ -116,20 +107,13 @@
 @media (max-width: 1024px) {
   .title {
     font-size: var(--font-size-3xl);
+    text-align: left;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-10);
     margin-top: var(--space-12);
-  }
-
-  .card {
-    min-height: 0;
-  }
-
-  .imagePlaceholder {
-    min-height: 280px;
   }
 }
 
@@ -139,15 +123,10 @@
   }
 
   .grid {
-    gap: var(--space-5);
     margin-top: var(--space-10);
   }
 
   .cardTitle {
     font-size: var(--font-size-2xl);
-  }
-
-  .imagePlaceholder {
-    min-height: 220px;
   }
 }

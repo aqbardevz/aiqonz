@@ -110,17 +110,48 @@ const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-const SCROLL_AMOUNT = 504;
-
 export function Testimonals() {
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   function scroll(direction: "prev" | "next") {
-    sliderRef.current?.scrollBy({
-      left: direction === "next" ? SCROLL_AMOUNT : -SCROLL_AMOUNT,
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+    const firstCard = track?.firstElementChild as HTMLElement | null;
+    if (!viewport || !track || !firstCard) return;
+
+    // Measure the actual rendered card width + gap instead of a hardcoded
+    // pixel amount, so one click always advances exactly one card — at
+    // any breakpoint, without the two staying in sync by hand.
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const amount = firstCard.offsetWidth + gap;
+
+    viewport.scrollBy({
+      left: direction === "next" ? amount : -amount,
       behavior: "smooth",
     });
   }
+
+  const navButtons = (
+    <>
+      <button
+        type="button"
+        className={styles.navButton}
+        aria-label="Previous testimonial"
+        onClick={() => scroll("prev")}
+      >
+        <NavArrowIcon direction="prev" />
+      </button>
+      <button
+        type="button"
+        className={styles.navButton}
+        aria-label="Next testimonial"
+        onClick={() => scroll("next")}
+      >
+        <NavArrowIcon direction="next" />
+      </button>
+    </>
+  );
 
   return (
     <section className={styles.testimonals}>
@@ -128,58 +159,45 @@ export function Testimonals() {
         <div className={styles.header}>
           <h2 className={styles.title}>What our clients say</h2>
 
-          <div className={styles.navButtons}>
-            <button
-              type="button"
-              className={styles.navButton}
-              aria-label="Previous testimonial"
-              onClick={() => scroll("prev")}
-            >
-              <NavArrowIcon direction="prev" />
-            </button>
-            <button
-              type="button"
-              className={styles.navButton}
-              aria-label="Next testimonial"
-              onClick={() => scroll("next")}
-            >
-              <NavArrowIcon direction="next" />
-            </button>
-          </div>
+          <div className={styles.navButtons}>{navButtons}</div>
         </div>
 
         <p className={styles.subtitle}>
           Hear what our clients have to say about working with aiqonz.
         </p>
+      </Container>
 
-        <div className={styles.sliderViewport} ref={sliderRef}>
-          <div className={styles.slider}>
-            {TESTIMONIALS.map((card) => (
-              <article key={card.name} className={styles.card}>
-                <blockquote className={styles.quote}>
-                  &ldquo;{card.quote}&rdquo;
-                </blockquote>
+      <div className={styles.sliderViewport} ref={viewportRef}>
+        <div className={styles.slider} ref={trackRef}>
+          {TESTIMONIALS.map((card) => (
+            <article key={card.name} className={styles.card}>
+              <blockquote className={styles.quote}>
+                &ldquo;{card.quote}&rdquo;
+              </blockquote>
 
-                <a href="#" className={styles.caseStudyLink}>
-                  Case Study
-                  <ArrowIcon />
-                </a>
+              <a href="#" className={styles.caseStudyLink}>
+                Case Study
+                <ArrowIcon />
+              </a>
 
-                <div className={styles.person}>
-                  <span className={styles.avatar} aria-hidden="true">
-                    {initials(card.name)}
-                  </span>
-                  <div>
-                    <div className={styles.name}>{card.name}</div>
-                    <div className={styles.role}>{card.role}</div>
-                  </div>
+              <div className={styles.person}>
+                <span className={styles.avatar} aria-hidden="true">
+                  {initials(card.name)}
+                </span>
+                <div>
+                  <div className={styles.name}>{card.name}</div>
+                  <div className={styles.role}>{card.role}</div>
                 </div>
-              </article>
-            ))}
-          </div>
+              </div>
+            </article>
+          ))}
         </div>
+      </div>
 
-        {/* <div className={styles.helpBanner}>
+      <div className={styles.navButtonsMobile}>{navButtons}</div>
+
+      {/* <Container>
+        <div className={styles.helpBanner}>
           <span className={styles.helpIcon} aria-hidden="true">
             <ChatIcon />
           </span>
@@ -189,8 +207,8 @@ export function Testimonals() {
           <a href="#" className={styles.helpButton}>
             Contact us
           </a>
-        </div> */}
-      </Container>
+        </div>
+      </Container> */}
     </section>
   );
 }

@@ -278,17 +278,9 @@
   .ctaButtons {
     width: 100%;
   }
-
-  .ctaButtons > * {
-    flex: 1 1 auto;
-  }
 }
 
 @media (max-width: 420px) {
-  .ctaButtons {
-    flex-direction: column;
-  }
-
   .columns {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-6) var(--space-4);
