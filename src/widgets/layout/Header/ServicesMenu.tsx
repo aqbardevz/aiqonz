@@ -27,7 +27,7 @@ type ServiceColumn = {
   items: ServiceItem[];
 };
 
-const COLUMNS: ServiceColumn[] = [
+export const SERVICE_COLUMNS: ServiceColumn[] = [
   {
     title: "#Web2",
     tint: "blue",
@@ -118,7 +118,7 @@ export function ServicesMenu() {
   return (
     <div className={styles.servicesPanel}>
       <div className={styles.servicesPanelInner}>
-        {COLUMNS.map((column, index) => (
+        {SERVICE_COLUMNS.map((column, index) => (
           <div key={column.title} className={styles.servicesColumnWrap}>
             <div className={styles.servicesColumn}>
               <span

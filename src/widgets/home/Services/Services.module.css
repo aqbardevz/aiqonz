@@ -120,6 +120,8 @@
 
   .grid {
     grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-top: var(--space-12);
   }
 
   .card {
@@ -127,6 +129,25 @@
   }
 
   .imagePlaceholder {
-    min-height: 200px;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .grid {
+    gap: var(--space-5);
+    margin-top: var(--space-10);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .imagePlaceholder {
+    min-height: 220px;
   }
 }

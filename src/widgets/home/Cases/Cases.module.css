@@ -118,6 +118,16 @@
   border-radius: var(--radius-lg);
 }
 
+@media (max-width: 1024px) {
+  .title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .inner {
+    padding: var(--space-8) var(--space-4);
+  }
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: var(--font-size-3xl);
@@ -141,5 +151,28 @@
 
   .cardTitle {
     font-size: var(--font-size-2xl);
+  }
+
+  .statsRow {
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: var(--space-6) var(--space-2);
+  }
+
+  .cardBody {
+    gap: var(--space-6);
+    padding: var(--space-6);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .statsRow {
+    gap: var(--space-5);
   }
 }

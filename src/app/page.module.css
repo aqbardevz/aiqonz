@@ -4,3 +4,17 @@
   gap: 140px;
   padding-bottom: 140px;
 }
+
+@media (max-width: 1024px) {
+  .main {
+    gap: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    gap: 72px;
+    padding-bottom: 72px;
+  }
+}

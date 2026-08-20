@@ -196,8 +196,9 @@
 
 .legalLinks {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-2) var(--space-6);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -220,8 +221,13 @@
 }
 
 @media (max-width: 900px) {
+  .footer {
+    padding-block: var(--space-12) var(--space-8);
+  }
+
   .cta {
     flex-direction: column;
+    gap: var(--space-8);
   }
 
   .ctaRight {
@@ -230,27 +236,65 @@
 
   .bottom {
     flex-direction: column;
-    gap: var(--space-12);
+    gap: var(--space-10);
+    padding-top: var(--space-10);
+  }
+
+  .divider {
+    margin-top: var(--space-12);
   }
 
   .columns {
-    gap: var(--space-10);
+    gap: var(--space-8) var(--space-6);
   }
 
   .legalBar {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-4);
+    padding-top: var(--space-6);
   }
 }
 
 @media (max-width: 640px) {
   .ctaHeadline {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
+  }
+
+  .ctaDescription {
+    font-size: var(--font-size-sm);
   }
 
   .columns {
-    flex-wrap: wrap;
-    gap: var(--space-8);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8) var(--space-4);
+  }
+
+  .column {
+    min-width: 0;
+  }
+
+  .ctaButtons {
+    width: 100%;
+  }
+
+  .ctaButtons > * {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .columns {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6) var(--space-4);
+  }
+
+  .logo {
+    font-size: var(--font-size-xl);
   }
 }
