@@ -251,6 +251,110 @@
   outline-offset: 2px;
 }
 
+.textarea {
+  resize: vertical;
+  min-height: 96px;
+  font-family: var(--font-family-base);
+}
+
+.inputError {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
+}
+
+.errorText {
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+}
+
+.formError {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+}
+
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.successIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-bg);
+  color: var(--color-accent);
+  animation: successIconPop var(--duration-base) var(--ease-default) both;
+  animation-delay: 80ms;
+}
+
+@keyframes successIconPop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .successIcon {
+    animation: none;
+  }
+}
+
+.successTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+}
+
+.successText {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.successCta {
+  min-width: 160px;
+  margin-top: var(--space-2);
+}
+
+.successTelegramLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.successTelegramLink:hover {
+  color: var(--color-black);
+}
+
 .methodOptions {
   display: flex;
   gap: var(--space-2);
@@ -336,6 +440,11 @@
 
 .submit:hover {
   background-color: var(--color-gray-800);
+}
+
+.submit:disabled {
+  background-color: var(--color-gray-400);
+  cursor: not-allowed;
 }
 
 .legal {
