@@ -48,24 +48,18 @@ const PERKS = [
   {
     Icon: LuGauge,
     title: "Quick response.",
-    text: "We'll reach out within 24 hours to discuss your goals and expectations.",
+    text: "We'll reply within 3 hours to discuss your goals and next steps.",
   },
   {
     Icon: LuSignpostBig,
     title: "Clear next steps.",
-    text: "After the consultation, we'll provide you with a detailed plan and timeline.",
+    text: "After a quick call, you'll get a clear plan, timeline, and scope — no guesswork.",
   },
   {
     Icon: LuHandshake,
     title: "Direct access.",
-    text: "You'll work directly with our founder — no account managers, no middlemen.",
+    text: "You'll work directly with the founder — no account managers, no middlemen.",
   },
-];
-
-const CAPTCHA_OPTIONS = [
-  { key: "headphones", Icon: LuHeadphones, label: "Headphones" },
-  { key: "bin", Icon: LuTrash2, label: "Bin" },
-  { key: "image", Icon: LuImage, label: "Image" },
 ];
 
 const CONTACT_METHODS = [
@@ -107,9 +101,9 @@ export function Form() {
 
           <p className={styles.description}>
             <span className={styles.descriptionStrong}>
-              Got a product to build
+              Have an idea, a product, or just a question?
             </span>{" "}
-            — smart contract, DeFi protocol, or audit? Let&rsquo;s make it real.
+            Tell us what you're building.
           </p>
 
           <ul className={styles.perks}>

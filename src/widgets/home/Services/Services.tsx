@@ -9,7 +9,7 @@ export function Services() {
     <section className={styles.services}>
       <Container className={styles.inner}>
         <h2 className={styles.title}>
-          We design, build, and integrate systems that drive growth
+          From smart contracts to pixel-perfect UI. We've got you covered.
         </h2>
 
         <div className={styles.grid}>

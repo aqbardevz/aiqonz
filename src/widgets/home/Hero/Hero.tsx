@@ -22,9 +22,8 @@ export function Hero() {
           </h1>
 
           <p className={styles.description}>
-            aiqonz is a team of blockchain engineers and security researchers
-            helping startups ship smart contracts, DeFi protocols, and audited
-            infrastructure
+            We combine deep blockchain expertise with product-grade design to
+            help founders launch faster and scale further.
           </p>
 
           <div className={styles.actions}>

@@ -10,27 +10,32 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is aiqonz?",
     answer:
-      "aiqonz is a Web3 development studio specializing in smart contracts, security audits, DeFi, and NFT development. We help teams ship secure, production-ready blockchain products, fast.",
+      "aiqonz is a full-cycle digital studio. We build Web2 products, Web3 solutions — smart contracts, DeFi, NFTs — and everything in between, from UI/UX design to production-ready code.",
   },
   {
     question: "Which blockchains do you work with?",
     answer:
-      "We build on Ethereum, Solana, Polygon, and most major EVM-compatible chains, plus emerging L2s. If your chain isn’t listed, just ask.",
+      "Ethereum, Solana, Polygon, and most major EVM-compatible chains, plus emerging L2s. Don't see your chain? Just ask — we probably support it.",
   },
   {
     question: "Do you audit smart contracts?",
     answer:
-      "Yes. Our security audits cover common vulnerabilities, gas optimization, and formal verification for critical contracts.",
+      "Yes. Our audits cover common vulnerabilities, gas optimization, and thorough manual review before anything goes to mainnet.",
+  },
+  {
+    question: "Can you handle both design and development?",
+    answer:
+      "Yes — that's the point. One team handles your UI/UX, frontend, backend, and smart contracts, so nothing gets lost between handoffs.",
   },
   {
     question: "How long does a typical project take?",
     answer:
-      "Most smart contract builds ship in 2–6 weeks depending on scope; audits typically take 1–2 weeks.",
+      "Most builds ship in 2–6 weeks depending on scope. Audits usually take 1–2 weeks. You'll get a clear timeline after our first call.",
   },
   {
     question: "How do I get started?",
     answer:
-      "Book a call or send us a brief. We’ll scope your project and get back to you within 24 hours.",
+      "Send us a brief or book a call. We'll reply within 3 hours and map out the scope, timeline, and next steps.",
   },
 ];
 

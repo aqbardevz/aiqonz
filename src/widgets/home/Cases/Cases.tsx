@@ -6,17 +6,11 @@ import styles from "./Cases.module.css";
 
 const FEATURED_PROJECTS = PROJECTS.slice(0, 3);
 
-const CURRENTLY_WORKING_ON = [
-  "DeFi Lending Protocol",
-  "NFT Marketplace",
-  "Cross-Chain Bridge",
-];
-
 export function Cases() {
   return (
     <section className={styles.cases}>
       <Container className={styles.inner}>
-        <h2 className={styles.title}>Build for real users</h2>
+        <h2 className={styles.title}>What We've Shipped</h2>
 
         <div className={styles.grid}>
           {FEATURED_PROJECTS.map((project) => (

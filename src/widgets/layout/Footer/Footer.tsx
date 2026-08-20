@@ -61,16 +61,13 @@ export function Footer() {
       <Container>
         <div className={styles.cta}>
           <h2 className={styles.ctaHeadline}>
-            Engineered for Security.
-            <br />
-            Built to Scale.
+            Let's build your next big thing.
           </h2>
 
           <div className={styles.ctaRight}>
             <p className={styles.ctaDescription}>
-              Smart contracts, audits, and full-stack Web3 development — done
-              right by engineers who specialize in security, DeFi, and on-chain
-              infrastructure.
+              No long onboarding, no bloated teams — just a direct line to the
+              people who'll build your product.
             </p>
 
             <div className={styles.ctaButtons}>
