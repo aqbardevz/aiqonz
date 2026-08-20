@@ -5,7 +5,8 @@
   border-radius: var(--radius-xl);
   padding-block: var(--space-16) var(--space-10);
   background-color: var(--color-black);
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse 900px 420px at 50% -10%,
       color-mix(in srgb, var(--color-white) 8%, transparent),
       transparent 70%
@@ -29,8 +30,8 @@
 
 .ctaHeadline {
   max-width: 620px;
-  font-size: var(--font-size-6xl);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-medium);
   line-height: 1.05;
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-white);
@@ -182,6 +183,42 @@
   border-radius: var(--radius-sm);
 }
 
+/* ---- Legal bar ---- */
+
+.legalBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-top: var(--space-8);
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legalLink {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.legalLink:hover {
+  color: var(--color-white);
+}
+
+.legalLink:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
 @media (max-width: 900px) {
   .cta {
     flex-direction: column;
@@ -198,6 +235,12 @@
 
   .columns {
     gap: var(--space-10);
+  }
+
+  .legalBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
   }
 }
 

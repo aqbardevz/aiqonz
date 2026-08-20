@@ -7,6 +7,9 @@ export type Project = {
   tags: string[];
   image: string;
   imageAlt: string;
+  /** Dominant accent colour sampled from the preview image, used for a
+   * faint background tint on the project card. */
+  accentColor: string;
   year: string;
   category: string;
   overview: string;
@@ -27,6 +30,7 @@ export const PROJECTS: Project[] = [
     tags: ["DeFi Wallet", "Mobile App", "B2C"],
     image: "/assets/projects/project-wallet2.png",
     imageAlt: "Fluxa wallet app screens",
+    accentColor: "#22c55e",
     year: "2024",
     category: "DeFi Wallet",
     overview:
@@ -49,6 +53,7 @@ export const PROJECTS: Project[] = [
     tags: ["Web3 AI", "Fintech Platform", "B2B SaaS"],
     image: "/assets/projects/project-smartvalor.png",
     imageAlt: "Smart Valor landing page",
+    accentColor: "#f0650a",
     year: "2024",
     category: "Fintech Platform",
     overview:
@@ -71,6 +76,7 @@ export const PROJECTS: Project[] = [
     tags: ["DeFi Dashboard", "Web3 SaaS", "B2B"],
     image: "/assets/projects/project-citadao.png",
     imageAlt: "CitaDAO liquidity pools dashboard",
+    accentColor: "#1e5aff",
     year: "2023",
     category: "DeFi Dashboard",
     overview:
@@ -93,6 +99,7 @@ export const PROJECTS: Project[] = [
     tags: ["DeFi Platform", "Web3 SaaS", "B2C"],
     image: "/assets/projects/project-cryptoproject.png",
     imageAlt: "CryptoProject landing page",
+    accentColor: "#2dbe8c",
     year: "2023",
     category: "DeFi Platform",
     overview:

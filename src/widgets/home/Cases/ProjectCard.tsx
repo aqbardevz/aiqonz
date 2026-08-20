@@ -1,12 +1,20 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import type { Project } from "@/shared/lib/projects";
 import styles from "./Cases.module.css";
 
 export function ProjectCard({ project }: { project: Project }) {
   const [primaryStat, secondaryStat] = project.results;
+  const cardStyle = {
+    "--project-accent": project.accentColor,
+  } as CSSProperties;
 
   return (
-    <Link href={`/cases/${project.slug}`} className={styles.card}>
+    <Link
+      href={`/cases/${project.slug}`}
+      className={styles.card}
+      style={cardStyle}
+    >
       <div className={styles.cardBody}>
         <div className={styles.cardTop}>
           <div className={styles.badges}>

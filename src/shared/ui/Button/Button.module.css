@@ -183,6 +183,7 @@
   background: none;
 }
 
+.secondary.button::before,
 .secondary.button::after {
   content: none;
 }
@@ -198,9 +199,4 @@
 
 .secondary .inner::before {
   content: none;
-}
-
-.secondary:hover .inner {
-  background: var(--color-bg-subtle);
-  border-color: var(--color-text-muted);
 }

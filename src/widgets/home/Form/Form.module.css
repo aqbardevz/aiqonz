@@ -1,6 +1,7 @@
 .form {
+  width: calc(100% - var(--space-1) * 2);
   max-width: 1500px;
-  margin-inline: var(--space-1);
+  margin-inline: auto;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--color-white) 15%, transparent);
   border-radius: var(--radius-xl);
