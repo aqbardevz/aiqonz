@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import { Container } from "@/shared/ui/Container/Container";
+import { JsonLd } from "@/shared/ui/JsonLd";
+import { SITE_URL } from "@/shared/config/site";
 import { PROJECTS } from "@/shared/lib/projects";
 import { ProjectCard } from "@/widgets/home/Cases/ProjectCard";
 import { getStackIcon } from "./icons";
@@ -25,6 +27,27 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
 
   return (
     <article className={styles.page}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Case Studies",
+              item: `${SITE_URL}/cases`,
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: project.company,
+              item: `${SITE_URL}/cases/${project.slug}`,
+            },
+          ],
+        }}
+      />
       <Container className={styles.inner}>
         <div className={styles.header}>
           <span className={styles.category}>{project.category}</span>

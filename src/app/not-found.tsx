@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/shared/ui/Container/Container";
 import styles from "./not-found.module.css";
+
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function NotFound() {
   return (

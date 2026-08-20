@@ -103,7 +103,7 @@ export function Form() {
             <span className={styles.descriptionStrong}>
               Have an idea, a product, or just a question?
             </span>{" "}
-            Tell us what you're building.
+            Tell us what you&rsquo;re building.
           </p>
 
           <ul className={styles.perks}>
@@ -133,27 +133,10 @@ export function Form() {
                   <div className={styles.contactName}>Akbar K.</div>
                   <div className={styles.contactRole}>Founder of Aiqonz</div>
                 </div>
-
-                <div className={styles.contactSocials}>
-                  <a
-                    href="#"
-                    aria-label="X (Twitter)"
-                    className={styles.contactSocialLink}
-                  >
-                    <XIcon />
-                  </a>
-                  <a
-                    href="#"
-                    aria-label="LinkedIn"
-                    className={styles.contactSocialLink}
-                  >
-                    <LinkedInIcon />
-                  </a>
-                </div>
               </div>
 
               <a
-                href="https://t.me/akbar"
+                href="https://t.me/aqbardevz"
                 target="_blank"
                 rel="noreferrer"
                 className={styles.telegramCta}

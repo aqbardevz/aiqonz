@@ -3,9 +3,9 @@ import { Button } from "@/shared/ui/Button/Button";
 import { Container } from "@/shared/ui/Container/Container";
 import { ScrambleText } from "@/shared/ui/ScrambleText/ScrambleText";
 import {
-  FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
+  TelegramIcon,
   XIcon,
 } from "./SocialIcons";
 import styles from "./Footer.module.css";
@@ -46,11 +46,21 @@ const LEGAL_LINKS: FooterLink[] = [
   { label: "Cookie Policy", href: "/cookie-policy" },
 ];
 
+// Akbar's personal accounts, not aiqonz's — this section is intentionally
+// framed as the founder's socials (see .connectLabel below).
 const SOCIAL_ICONS = [
-  { label: "Instagram", href: "#", Icon: InstagramIcon },
-  { label: "Facebook", href: "#", Icon: FacebookIcon },
-  { label: "X (Twitter)", href: "#", Icon: XIcon },
-  { label: "LinkedIn", href: "#", Icon: LinkedInIcon },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/aqbardevz/",
+    Icon: InstagramIcon,
+  },
+  { label: "X (Twitter)", href: "https://x.com/aqbardevz", Icon: XIcon },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/aqbardevz",
+    Icon: LinkedInIcon,
+  },
+  { label: "Telegram", href: "https://t.me/aqbardevz", Icon: TelegramIcon },
 ];
 
 export function Footer() {
@@ -61,13 +71,13 @@ export function Footer() {
       <Container>
         <div className={styles.cta}>
           <h2 className={styles.ctaHeadline}>
-            Let's build your next big thing.
+            Let&rsquo;s build your next big thing.
           </h2>
 
           <div className={styles.ctaRight}>
             <p className={styles.ctaDescription}>
               No long onboarding, no bloated teams — just a direct line to the
-              people who'll build your product.
+              people who&rsquo;ll build your product.
             </p>
 
             <div className={styles.ctaButtons}>
@@ -88,12 +98,16 @@ export function Footer() {
             <span className={styles.logo}>aiqonz</span>
 
             <div className={styles.connect}>
-              <span className={styles.connectLabel}>Connect with us:</span>
+              <span className={styles.connectLabel}>
+                Connect with our founder, Akbar:
+              </span>
               <div className={styles.socialIcons}>
                 {SOCIAL_ICONS.map(({ label, href, Icon }) => (
                   <a
                     key={label}
                     href={href}
+                    target="_blank"
+                    rel="noreferrer"
                     aria-label={label}
                     className={styles.iconLink}
                   >

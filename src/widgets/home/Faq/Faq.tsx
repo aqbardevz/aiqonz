@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Container } from "@/shared/ui/Container/Container";
+import { JsonLd } from "@/shared/ui/JsonLd";
 import styles from "./Faq.module.css";
 
 type FaqItem = { question: string; answer: string };
@@ -44,6 +45,20 @@ export function Faq() {
 
   return (
     <section className={styles.faq}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQ_ITEMS.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }}
+      />
       <Container className={styles.inner}>
         <h2 className={styles.title}>Frequently Asked Questions</h2>
         <p className={styles.subtitle}>
